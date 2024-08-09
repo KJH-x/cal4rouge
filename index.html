@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .calculator {
+            text-align: center;
+        }
+        .calculator input {
+            width: 50px;
+            text-align: center;
+        }
+        .calculator span, .calculator button {
+            margin: 0 5px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="number" id="num1">
+        <span>+</span>
+        <input type="number" id="num2">
+        <button onclick="calculate()">=</button>
+        <span id="result"></span>
+    </div>
+
+    <script>
+        function calculate() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const result = num1 + num2;
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>
