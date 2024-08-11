@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RglkCalv0.0.2|开发中</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/main-functions.css">
 </head>
 <body>
     <div class="sidebar" id="mySidebar">
-        <input type="text" id="encodedState" class="sidebar-input" readonly>
-        <button class="sidebar-button" onclick="copyState()">Copy</button>
         <div class="menubtn" onclick="toggleMenu()">
             <i>☰</i> Menu
         </div>
+        <a type="text" id="encodedState" class="menu-state-text" readonly onclick="copyState()"></a>
         <div class="closebtn" onclick="closeNav()">&times;</div>
-        <a href="#">A</a>
+        <a href="#">清空</a>
         <a href="#">B</a>
         <a href="#">C</a>
         <a href="#">D</a>
@@ -28,6 +29,8 @@
         <span id="result"></span>
     </div>
 
-    <script src="js/scripts.js"></script>
+    <!-- <script src="js/scripts.js"></script> -->
+    <script src="js/main-functions.js"></script>
+    <script src="js/page-utils.js"></script>
 </body>
 </html>

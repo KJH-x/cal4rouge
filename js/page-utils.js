@@ -1,33 +1,3 @@
-function toggleMenu() {
-    var sidebar = document.getElementById("mySidebar");
-    if (sidebar.classList.contains('open')) {
-        sidebar.classList.remove('open');
-    } else {
-        sidebar.classList.add('open');
-    }
-}
-
-function closeNav() {
-    document.getElementById("mySidebar").classList.remove('open');
-}
-
-// 鼠标悬停展开菜单
-document.getElementById("mySidebar").addEventListener('mouseenter', function() {
-    this.classList.add('open');
-});
-
-// 鼠标离开收回菜单
-document.getElementById("mySidebar").addEventListener('mouseleave', function() {
-    this.classList.remove('open');
-});
-
-function calculate() {
-    const num1 = parseFloat(document.getElementById('num1').value);
-    const num2 = parseFloat(document.getElementById('num2').value);
-    const result = num1 + num2;
-    document.getElementById('result').textContent = result;
-}
-
 function getStateString() {
     let stateObj = {};
     const inputs = document.querySelectorAll('input, select, textarea, [type=checkbox], [type=radio]');
@@ -35,7 +5,9 @@ function getStateString() {
         stateObj[input.id] = input.value || (input.checked ? 'True' : 'False');
     });
     const stateString = Object.keys(stateObj).map(key => `${key}=${stateObj[key]}`).join(';');
-    return btoa(stateString); // 使用base64编码
+    const encodedState = btoa(stateString)
+    document.getElementById('encodedState').textContent = encodedState
+    return encodedState; // 使用base64编码
 }
 
 function updateState(encodedString) {
@@ -63,10 +35,10 @@ function updateState(encodedString) {
 
 function copyState() {
     const encodedState = getStateString();
-    document.getElementById('encodedState').value = encodedState;
-    navigator.clipboard.writeText(encodedState).then(function() {
+    document.getElementById('encodedState').textContent = encodedState;
+    navigator.clipboard.writeText(encodedState).then(function () {
         alert('State copied to clipboard!');
-    }).catch(function(err) {
+    }).catch(function (err) {
         alert('Failed to copy state: ' + err);
     });
 }
@@ -80,5 +52,29 @@ function loadStateFromParams() {
     }
 }
 
+function toggleMenu() {
+    var sidebar = document.getElementById("mySidebar");
+    if (sidebar.classList.contains('open')) {
+        sidebar.classList.remove('open');
+    } else {
+        sidebar.classList.add('open');
+    }
+}
+
+function closeNav() {
+    document.getElementById("mySidebar").classList.remove('open');
+}
+
+// 鼠标悬停展开菜单
+document.getElementById("mySidebar").addEventListener('mouseenter', function () {
+    this.classList.add('open');
+});
+
+// 鼠标离开收回菜单
+document.getElementById("mySidebar").addEventListener('mouseleave', function () {
+    this.classList.remove('open');
+});
+
 // 调用loadStateFromParams来初始化状态
 loadStateFromParams();
+getStateString();
