@@ -1,0 +1,62 @@
+{
+    "block-list": [
+        {
+            "index": 1,
+            "title": "count-box",
+            "subtitle": "subtitle",
+            "items": [
+                {
+                    "pics": "data:image/png...",
+                    "name": "item-name",
+                    "input": {
+                        "type": "int",
+                        "offset": 3
+                    }
+                },
+                {
+                    "pics": "data:image/png...",
+                    "name": "item-name2",
+                    "input": {
+                        "type": "int",
+                        "offset": -5
+                    }
+                }
+            ],
+            "output": {
+                "method": "sum",
+                "factor": 2,
+                "offset": 7
+            }
+        },
+        {
+            "index": 2,
+            "title": "tick-box",
+            "subtitle": "subtitle",
+            "items": [
+                {
+                    "pics": "data:image/png...",
+                    "name": "item-name3",
+                    "input": {
+                        "type": "bool",
+                        "value": 20,
+                        "offset": 0
+                    }
+                },
+                {
+                    "pics": "data:image/png...",
+                    "name": "item-name5",
+                    "input": {
+                        "type": "bool",
+                        "value": 20,
+                        "offset": 0
+                    }
+                }
+            ],
+            "output": {
+                "method": "sum",
+                "factor": 1,
+                "offset": 30
+            }
+        }
+    ]
+}

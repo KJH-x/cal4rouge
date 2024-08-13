@@ -1,12 +1,14 @@
 function getStateString() {
     let stateObj = {};
-    const inputs = document.querySelectorAll('input, select, textarea, [type=checkbox], [type=radio]');
+    const inputs = document.querySelectorAll('input, select, textarea, [type=checkbox], [type=radio],[class=slider]');
     inputs.forEach(input => {
-        stateObj[input.id] = input.value || (input.checked ? 'True' : 'False');
+        console.log(input.id, input.value,input.checked,input.classList.contains("active"))
+        stateObj[input.id] = input.value || (input.checked ? 'True' : 'False')|| input.classList.contains("active");
     });
     const stateString = Object.keys(stateObj).map(key => `${key}=${stateObj[key]}`).join(';');
     const encodedState = btoa(stateString)
-    document.getElementById('encodedState').textContent = encodedState
+    document.getElementById('currentStatus').textContent = encodedState
+    console.log(stateString)
     return encodedState; // 使用base64编码
 }
 
@@ -35,7 +37,7 @@ function updateState(encodedString) {
 
 function copyState() {
     const encodedState = getStateString();
-    document.getElementById('encodedState').textContent = encodedState;
+    document.getElementById('currentStatus').textContent = encodedState;
     navigator.clipboard.writeText(encodedState).then(function () {
         alert('State copied to clipboard!');
     }).catch(function (err) {
@@ -48,33 +50,14 @@ function loadStateFromParams() {
     const encodedState = params.get('check');
     if (encodedState) {
         updateState(encodedState);
-        document.getElementById('encodedState').value = encodedState;
+        document.getElementById('currentStatus').value = encodedState;
     }
 }
 
-function toggleMenu() {
-    var sidebar = document.getElementById("mySidebar");
-    if (sidebar.classList.contains('open')) {
-        sidebar.classList.remove('open');
-    } else {
-        sidebar.classList.add('open');
-    }
-}
 
-function closeNav() {
-    document.getElementById("mySidebar").classList.remove('open');
-}
 
-// 鼠标悬停展开菜单
-document.getElementById("mySidebar").addEventListener('mouseenter', function () {
-    this.classList.add('open');
+document.addEventListener('DOMContentLoaded', function () {
+    // updateState();
+    // loadStateFromParams();
+    // getStateString();
 });
-
-// 鼠标离开收回菜单
-document.getElementById("mySidebar").addEventListener('mouseleave', function () {
-    this.classList.remove('open');
-});
-
-// 调用loadStateFromParams来初始化状态
-loadStateFromParams();
-getStateString();
