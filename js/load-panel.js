@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let totalScore = 0;
     let panelList = [];
     const logArea = document.getElementById("logArea");
-    const totalScoreValue = document.getElementById("totalScoreValue");
 
     fetch('/assets/configs/panels.json')
         .then(response => response.json())
@@ -167,9 +166,17 @@ document.addEventListener("DOMContentLoaded", function () {
         sum = sum * panel.output.factor + panel.output.offset;
         const summaryValue = panelDiv.querySelector(".summary-value");
         summaryValue.textContent = sum;
+        updateGrandTotal()
+    }
+    function updateGrandTotal() {
+        const totalScoreValue = document.getElementById("totalScoreValue");
+        const summaryValueBox = document.getElementsByClassName("summary-value")
+        let sum = 0;
 
-        totalScore += sum;
-        totalScoreValue.textContent = totalScore;
+        for (let item of summaryValueBox) {
+            sum += parseFloat(item.textContent) || 0;
+        }
+        totalScoreValue.textContent = sum
     }
 
     function logAction(itemName, action) {
