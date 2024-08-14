@@ -2,60 +2,141 @@
     "block-list": [
         {
             "index": 1,
-            "title": "count-box",
-            "subtitle": "subtitle",
+            "title": "隐藏敌人",
+            "subtitle": "你的财富，借用一下",
             "items": [
                 {
-                    "pics": "data:image/png...",
-                    "name": "item-name",
+                    "pics": "assets/images/Avatars/鸭爵.png",
+                    "name": "鸭爵",
                     "input": {
                         "type": "int",
-                        "offset": 3
+                        "offset": 0
                     }
                 },
                 {
-                    "pics": "data:image/png...",
-                    "name": "item-name2",
+                    "pics": "assets/images/Avatars/高普尼克.png",
+                    "name": "高普尼克",
                     "input": {
                         "type": "int",
-                        "offset": -5
+                        "offset": 0
+                    }
+                },
+                {
+                    "pics": "assets/images/Avatars/流泪小子.png",
+                    "name": "流泪小子",
+                    "input": {
+                        "type": "int",
+                        "offset": 0
+                    }
+                },
+                {
+                    "pics": "assets/images/Avatars/圆仔.png",
+                    "name": "圆仔",
+                    "input": {
+                        "type": "int",
+                        "offset": 0
                     }
                 }
             ],
             "output": {
                 "method": "sum",
-                "factor": 2,
-                "offset": 7
+                "factor": 10,
+                "offset": 0
             }
         },
         {
             "index": 2,
-            "title": "tick-box",
-            "subtitle": "subtitle",
+            "title": "未招募干员",
+            "subtitle": "这些我们一般说：太强不用",
             "items": [
                 {
-                    "pics": "data:image/png...",
-                    "name": "item-name3",
+                    "pics": "assets/images/Avatars/维什戴尔.png",
+                    "name": "维什戴尔",
                     "input": {
                         "type": "bool",
-                        "value": 20,
-                        "offset": 0
+                        "value": -130,
+                        "offset": 0,
+                        "default": 0
                     }
                 },
                 {
-                    "pics": "data:image/png...",
-                    "name": "item-name5",
+                    "pics": "assets/images/Avatars/麒麟R夜刀.png",
+                    "name": "麒麟R夜刀",
                     "input": {
                         "type": "bool",
-                        "value": 20,
-                        "offset": 0
+                        "value": -70,
+                        "offset": 0,
+                        "default": 0
+                    }
+                },{
+                    "pics": "assets/images/Avatars/逻各斯.png",
+                    "name": "逻各斯",
+                    "input": {
+                        "type": "bool",
+                        "value": -70,
+                        "offset": 0,
+                        "default": 0
+                    }
+                },{
+                    "pics": "assets/images/Avatars/乌尔比安.png",
+                    "name": "乌尔比安",
+                    "input": {
+                        "type": "bool",
+                        "value": -40,
+                        "offset": 0,
+                        "default": 0
+                    }
+                },{
+                    "pics": "assets/images/Avatars/妮芙.png",
+                    "name": "妮芙",
+                    "input": {
+                        "type": "bool",
+                        "value": -40,
+                        "offset": 0,
+                        "default": 0
+                    }
+                },{
+                    "pics": "assets/images/Avatars/莱伊.png",
+                    "name": "莱伊",
+                    "input": {
+                        "type": "bool",
+                        "value": -40,
+                        "offset": 0,
+                        "default": 0
+                    }
+                },{
+                    "pics": "assets/images/Avatars/缄默德克萨斯.png",
+                    "name": "缄默德克萨斯",
+                    "input": {
+                        "type": "bool",
+                        "value": -40,
+                        "offset": 0,
+                        "default": 0
+                    }
+                },{
+                    "pics": "assets/images/Avatars/纯烬艾雅法拉.png",
+                    "name": "纯烬艾雅法拉",
+                    "input": {
+                        "type": "bool",
+                        "value": -40,
+                        "offset": 0,
+                        "default": 0
+                    }
+                },{
+                    "pics": "assets/images/Avatars/阿斯卡纶.png",
+                    "name": "阿斯卡纶",
+                    "input": {
+                        "type": "bool",
+                        "value": -40,
+                        "offset": 0,
+                        "default": 0
                     }
                 }
             ],
             "output": {
                 "method": "sum",
                 "factor": 1,
-                "offset": 30
+                "offset": 0
             }
         }
     ]

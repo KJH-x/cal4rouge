@@ -1,12 +1,16 @@
 .panel {
-    width: 300px;
+    width: 250px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     background-color: #f0f0f0;
     box-sizing: border-box;
+    border-radius: 13px 13px;
+    border-color: rgb(98, 140, 224);
+    border-width: 2px;
+    box-shadow:  3px 3px 10px #0c0f24;
 }
 
-.panel-title-box, .panel-summary-box {
+.panel-title-box {
     background-color: black;
     color: white;
     height: 50px;
@@ -14,8 +18,18 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    border-radius: 10px 10px 0 0;
 }
-
+.panel-summary-box {
+    background-color: black;
+    color: white;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius:  0 0 10px 10px;
+}
 .panel-title {
     font-size: 15px;
     margin-top: 5px;
@@ -29,23 +43,34 @@
 
 .panel-summary-box {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 0 10px;
 }
 
-.panel-summary-box .summary-label {
-    font-size: 15px;
+.panel-summary-box .summary-container {
+    flex: 1; /* Make both containers take up equal space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.panel-summary-box .summary-container:first-child {
+    justify-content: flex-start; /* Left-align the first container */
+}
+
+.panel-summary-box .summary-container:last-child {
+    justify-content: flex-end; /* Right-align the second container */
+}
+
+.panel-summary-box .summary-label, 
 .panel-summary-box .summary-value {
     font-size: 15px;
+    align-items: center;
 }
 
 .panel-item {
     display: flex;
     align-items: center;
-    padding: 10px;
+    /* padding: 10px; */
     border-bottom: 1px solid #ddd;
 }
 
@@ -78,7 +103,7 @@
 }
 
 .panel-item .operation input {
-    width: 50px;
+    width: 20px;
     text-align: center;
 }
 
@@ -108,4 +133,25 @@
 
 .switch.active .slider {
     left: 21px;
+}
+
+.log-area {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #f0f0f0;
+    padding: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    max-height: calc(100vh - 100px); /* Prevent the log area from growing too large */
+}
+
+.total-score {
+    height: 50px;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    position: sticky;
+    bottom: 0;
 }

@@ -23,9 +23,9 @@
                     alt="Icon" id="iconImage">
             </span>
         </div>
-        <a href="" id="statusTitle" class="statusElement">萨卡兹肉鸽计分</a>
-        <a href="" id="versionInfo" class="statusElement">Version Info</a>
-        <a href="" id="currentStatus" class="statusElement" onclick="copyState()">Current Status</a>
+        <a id="statusTitle" class="statusElement">萨卡兹肉鸽计分</a>
+        <a id="versionInfo" class="statusElement">Dev 0814A</a>
+        <a id="currentStatus" class="statusElement" onclick="copyState()">Current Status</a>
     </div>
 
 
@@ -34,25 +34,30 @@
             <!-- 动态生成的面板将插入到这里 -->
         </div>
         <div class="right-content">
-            <!-- 右侧固定内容 -->
-            <p>右侧固定内容</p>
+            <div class="log-area" id="logArea">
+                <!-- 日志内容会动态插入到这里 -->
+            </div>
+            <div class="total-score" id="totalScore">
+                总分：<span id="totalScoreValue">0</span>
+            </div>
         </div>
     </div>
 
     <!-- SVG Symbols for icons -->
     <svg width="0" height="0" style="position: absolute;">
         <symbol id="icon-minus" viewBox="0 0 24 24">
-            <rect width="24" height="2" y="11" fill="#fff"></rect>
+            <image href="assets/images/-.svg" width="24" height="24"></image>
         </symbol>
         <symbol id="icon-plus" viewBox="0 0 24 24">
-            <rect width="24" height="2" y="11" fill="#fff"></rect>
-            <rect width="2" height="24" x="11" fill="#fff"></rect>
+            <image href="assets/images/+.svg" width="24" height="24"></image>
         </symbol>
     </svg>
+    
     <!-- <script src="js/scripts.js"></script> -->
     <script src="js/main-functions.js"></script>
     <script src="js/page-utils.js"></script>
     <script src="js/load-panel.js"></script>
+    <!-- <script src="js/debug.js"></script> -->
 </body>
 
 </html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_图层_1" data-name="图层 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 180 180">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#_未命名的渐变_55);
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+    </style>
+    <linearGradient id="_未命名的渐变_55" data-name="未命名的渐变 55" x1="26.44" y1="153.56" x2="153.56" y2="26.44" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000"/>
+      <stop offset=".19" stop-color="#000300"/>
+      <stop offset=".35" stop-color="#020d00"/>
+      <stop offset=".49" stop-color="#051e00"/>
+      <stop offset=".62" stop-color="#093500"/>
+      <stop offset=".75" stop-color="#0e5400"/>
+      <stop offset=".87" stop-color="#147a00"/>
+      <stop offset=".99" stop-color="#1ca600"/>
+      <stop offset="1" stop-color="#1dab00"/>
+    </linearGradient>
+  </defs>
+  <g id="_" data-name="+">
+    <g>
+      <path class="cls-2" d="M90,0C40.5,0,0,40.5,0,90s40.5,90,90,90,90-40.5,90-90S139.5,0,90,0ZM90,162c-39.6,0-72-32.4-72-72S50.4,18,90,18c39.6,0,72,32.4,72,72s-32.4,72-72,72Z"/>
+      <path class="cls-2" d="M155.86,98.78h-57.08v57.08h-17.56v-57.08H24.14v-17.56h57.08V24.14h17.56v57.08h57.08v17.56Z"/>
+    </g>
+    <g>
+      <path class="cls-1" d="M90,0C40.5,0,0,40.5,0,90s40.5,90,90,90,90-40.5,90-90S139.5,0,90,0ZM90,162c-39.6,0-72-32.4-72-72S50.4,18,90,18c39.6,0,72,32.4,72,72s-32.4,72-72,72Z"/>
+      <path class="cls-1" d="M155.86,98.78h-57.08v57.08h-17.56v-57.08H24.14v-17.56h57.08V24.14h17.56v57.08h57.08v17.56Z"/>
+    </g>
+  </g>
+</svg>

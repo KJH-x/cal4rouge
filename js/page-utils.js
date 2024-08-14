@@ -1,39 +1,69 @@
 function getStateString() {
-    let stateObj = {};
-    const inputs = document.querySelectorAll('input, select, textarea, [type=checkbox], [type=radio],[class=slider]');
-    inputs.forEach(input => {
-        console.log(input.id, input.value,input.checked,input.classList.contains("active"))
-        stateObj[input.id] = input.value || (input.checked ? 'True' : 'False')|| input.classList.contains("active");
+    let stateString = '';
+    const versionString = document.getElementById('versionInfo').textContent;
+    stateString += versionString + ':';
+
+    const panels = document.querySelectorAll('.panel');
+    panels.forEach(panel => {
+        const items = panel.querySelectorAll('.panel-item');
+        items.forEach(itemDiv => {
+            const inputField = itemDiv.querySelector('input');
+            const switchDiv = itemDiv.querySelector('.switch');
+            if (inputField) {
+                stateString += Math.max(0, parseInt(inputField.value)) + ';';
+            } else if (switchDiv) {
+                stateString += (switchDiv.classList.contains('active') ? '1' : '0') + ';';
+            }
+        });
     });
-    const stateString = Object.keys(stateObj).map(key => `${key}=${stateObj[key]}`).join(';');
+
+    stateString = stateString.slice(0, -1); 
+    
     const encodedState = btoa(stateString)
     document.getElementById('currentStatus').textContent = encodedState
-    console.log(stateString)
-    return encodedState; // 使用base64编码
+    return encodedState;
 }
 
 function updateState(encodedString) {
     try {
-        const stateString = atob(encodedString); // 使用base64解码
-        const stateObj = {};
-        stateString.split(';').forEach(part => {
-            const [key, value] = part.split('=');
-            stateObj[key] = value;
-        });
-        Object.keys(stateObj).forEach(key => {
-            const element = document.getElementById(key);
-            if (element) {
-                if (element.type === 'checkbox' || element.type === 'radio') {
-                    element.checked = stateObj[key] === 'True';
-                } else {
-                    element.value = stateObj[key];
+        const stateString = atob(encodedString);
+        const [versionString, states] = stateString.split(':');
+        const stateArray = states.split(';');
+        const currentVersion = document.getElementById('versionInfo').textContent;
+
+        if (versionString !== currentVersion) {
+            console.log('Version mismatch. State not updated.');
+            return;
+        }
+
+        let stateIndex = 0;
+        const panels = document.querySelectorAll('.panel');
+        panels.forEach(panel => {
+            const items = panel.querySelectorAll('.panel-item');
+            items.forEach(itemDiv => {
+                const inputField = itemDiv.querySelector('input');
+                const switchDiv = itemDiv.querySelector('.switch');
+                if (stateIndex < stateArray.length) {
+                    const stateValue = stateArray[stateIndex];
+                    if (inputField) {
+                        inputField.value = Math.max(0, parseInt(stateValue));
+                    } else if (switchDiv) {
+                        if (stateValue === '1') {
+                            switchDiv.classList.add('active');
+                        } else {
+                            switchDiv.classList.remove('active');
+                        }
+                    }
+                    stateIndex++;
                 }
-            }
+            });
         });
+
     } catch (e) {
         console.error('Failed to decode state:', e);
     }
 }
+
 
 function copyState() {
     const encodedState = getStateString();
@@ -54,10 +84,3 @@ function loadStateFromParams() {
     }
 }
 
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    // updateState();
-    // loadStateFromParams();
-    // getStateString();
-});
