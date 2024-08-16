@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 inputField.value = item.input.offset;
                 inputField.className = "item-count"
                 inputField.value = item.input.default !== undefined ? item.input.default : -item.input.offset;
+                inputField.id = item.name;
 
                 minusButton.addEventListener("click", function () {
                     if (parseInt(inputField.value) > 0) {
@@ -144,6 +145,33 @@ document.addEventListener("DOMContentLoaded", function () {
                 option.textContent = item.name;
                 selectBox.appendChild(option);
             });
+            selectBox.id = panel.title;
+
+            selectBox.addEventListener("change", function () {
+                const selectedIndex = selectBox.value;
+                if (selectedIndex !== "") {
+                    const selectedItem = panel.items[selectedIndex];
+                    const selectedItemDiv = panelDiv.querySelectorAll(".panel-item")[selectedIndex];
+                    if (selectedItemDiv) {
+                        selectedItemDiv.classList.remove("collapsed");
+                        if (selectedItem.input.type === "bool") {
+                            const switchDiv = selectedItemDiv.querySelector(".switch");
+                            if (switchDiv) {
+                                switchDiv.classList.add("active");
+                            }
+                        } else if (selectedItem.input.type === "int") {
+                            const inputField = selectedItemDiv.querySelector("input");
+                            if (inputField) {
+                                inputField.value = 1;
+                            }
+                        }
+                        selectBox.remove(selectBox.selectedIndex);
+                        updateSummary(panel, panelDiv);
+                        logAction(selectedItem.name, '+1');
+                    }
+                }
+            });
+
 
             const addButton = document.createElement("button");
             addButton.innerHTML = '<svg width="24" height="24"><use xlink:href="#icon-add-item"></use></svg>';
@@ -216,7 +244,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (item.input.type === "int") {
                 const inputField = itemDiv.querySelector("input");
-                value = parseInt(inputField.value);
+                let itemCount = parseInt(inputField.value);
+                if (item.input.offset < 0) {
+                    itemCount = Math.max(0, itemCount + item.input.offset);
+                } else {
+                    itemCount = itemCount + item.input.offset;
+                }
+                value =  itemCount * parseInt(item.input.value);
             } else if (item.input.type === "bool") {
                 const switchDiv = itemDiv.querySelector(".switch");
                 value = switchDiv.classList.contains("active") ? item.input.value : 0;
@@ -226,14 +260,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 value = 0;
             }
 
-            if (item.input.offset < 0) {
-                sum += Math.max(0, value + item.input.offset);
-            } else {
-                sum += value + item.input.offset;
-            }
+            sum += value
         });
 
-        sum = sum * panel.output.factor + panel.output.offset;
+        sum = sum + panel.output.offset;
         const summaryValue = panelDiv.querySelector(".summary-value");
         summaryValue.textContent = sum;
         updateGrandTotal()
@@ -283,10 +313,14 @@ document.addEventListener("DOMContentLoaded", function () {
                         if (item.input.type === 'int') {
                             const inputField = itemDiv.querySelector('input');
                             inputField.value = Math.max(0, parseInt(stateValue));
+                            if (inputField.value != 0 && itemDiv && itemDiv.classList){
+                                itemDiv.classList.remove('collapsed');
+                            }
                         } else if (item.input.type === 'bool') {
                             const switchDiv = itemDiv.querySelector('.switch');
                             if (stateValue === '1') {
                                 switchDiv.classList.add('active');
+                                itemDiv.classList.remove('collapsed');
                             } else {
                                 switchDiv.classList.remove('active');
                             }
@@ -294,7 +328,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         stateIndex++;
                     }
                 });
-                updateSummary(panel, panelDiv); // 每次更新后重新计算summary
+                updateSummary(panel, panelDiv);
             });
 
         } catch (e) {

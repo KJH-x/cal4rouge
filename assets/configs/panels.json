@@ -2,6 +2,67 @@
     "block-list": [
         {
             "index": 1,
+            "title": "临时招募",
+            "subtitle": "他自己来的，不是我非要抓的",
+            "fold": true,
+            "items": [
+                {
+                    "pics": "assets/images/Rarity/4⭐.png",
+                    "name": "4⭐临时招募",
+                    "input": {
+                        "type": "int",
+                        "offset": 0,
+                        "value": 10
+                    }
+                },
+                {
+                    "pics": "assets/images/Rarity/5⭐.png",
+                    "name": "5⭐临时招募",
+                    "input": {
+                        "type": "int",
+                        "offset": 0,
+                        "value": 20
+                    }
+                },
+                {
+                    "pics": "assets/images/Rarity/6⭐.png",
+                    "name": "6⭐临时招募",
+                    "input": {
+                        "type": "int",
+                        "offset": 0,
+                        "value": 50
+                    }
+                }
+            ],
+            "output": {
+                "method": "sum",
+                "offset": 0
+            }
+        },
+        {
+            "index": 2,
+            "title": "取钱计数",
+            "subtitle": "Take it! Take My Card!",
+            "fold": false,
+            "items": [
+                {
+                    "pics": "assets/images/Props/源石锭.png",
+                    "name": "(一共取了)",
+                    "input": {
+                        "type": "int",
+                        "default": 0,
+                        "offset": -90,
+                        "value": -50
+                    }
+                }
+            ],
+            "output": {
+                "method": "sum",
+                "offset": 0
+            }
+        },
+        {
+            "index": 3,
             "title": "隐藏敌人",
             "subtitle": "你的财富，借用一下",
             "fold": true,
@@ -11,7 +72,8 @@
                     "name": "鸭爵",
                     "input": {
                         "type": "int",
-                        "offset": 0
+                        "offset": 0,
+                        "value": 10
                     }
                 },
                 {
@@ -19,7 +81,8 @@
                     "name": "高普尼克",
                     "input": {
                         "type": "int",
-                        "offset": 0
+                        "offset": 0,
+                        "value": 10
                     }
                 },
                 {
@@ -27,7 +90,8 @@
                     "name": "流泪小子",
                     "input": {
                         "type": "int",
-                        "offset": 0
+                        "offset": 0,
+                        "value": 10
                     }
                 },
                 {
@@ -35,19 +99,19 @@
                     "name": "圆仔",
                     "input": {
                         "type": "int",
-                        "offset": 0
+                        "offset": 0,
+                        "value": 10
                     }
                 }
             ],
             "output": {
                 "method": "sum",
-                "factor": 10,
                 "offset": 0
             }
         },
         {
-            "index": 2,
-            "title": "未招募干员",
+            "index": 4,
+            "title": "Ban位招募",
             "subtitle": "这些我们一般说：太强不用",
             "fold": true,
             "items": [
@@ -56,17 +120,7 @@
                     "name": "维什戴尔",
                     "input": {
                         "type": "bool",
-                        "value": -130,
-                        "offset": 0,
-                        "default": false
-                    }
-                },
-                {
-                    "pics": "assets/images/Avatars/麒麟R夜刀.png",
-                    "name": "麒麟R夜刀",
-                    "input": {
-                        "type": "bool",
-                        "value": -70,
+                        "value": -100,
                         "offset": 0,
                         "default": false
                     }
@@ -76,57 +130,17 @@
                     "name": "逻各斯",
                     "input": {
                         "type": "bool",
-                        "value": -70,
+                        "value": -100,
                         "offset": 0,
                         "default": false
                     }
                 },
                 {
-                    "pics": "assets/images/Avatars/乌尔比安.png",
-                    "name": "乌尔比安",
+                    "pics": "assets/images/Avatars/麒麟R夜刀.png",
+                    "name": "麒麟R夜刀",
                     "input": {
                         "type": "bool",
-                        "value": -40,
-                        "offset": 0,
-                        "default": false
-                    }
-                },
-                {
-                    "pics": "assets/images/Avatars/妮芙.png",
-                    "name": "妮芙",
-                    "input": {
-                        "type": "bool",
-                        "value": -40,
-                        "offset": 0,
-                        "default": false
-                    }
-                },
-                {
-                    "pics": "assets/images/Avatars/莱伊.png",
-                    "name": "莱伊",
-                    "input": {
-                        "type": "bool",
-                        "value": -40,
-                        "offset": 0,
-                        "default": false
-                    }
-                },
-                {
-                    "pics": "assets/images/Avatars/缄默德克萨斯.png",
-                    "name": "缄默德克萨斯",
-                    "input": {
-                        "type": "bool",
-                        "value": -40,
-                        "offset": 0,
-                        "default": false
-                    }
-                },
-                {
-                    "pics": "assets/images/Avatars/纯烬艾雅法拉.png",
-                    "name": "纯烬艾雅法拉",
-                    "input": {
-                        "type": "bool",
-                        "value": -40,
+                        "value": -50,
                         "offset": 0,
                         "default": false
                     }
@@ -136,7 +150,17 @@
                     "name": "阿斯卡纶",
                     "input": {
                         "type": "bool",
-                        "value": -40,
+                        "value": -50,
+                        "offset": 0,
+                        "default": false
+                    }
+                },
+                {
+                    "pics": "assets/images/Avatars/凯尔希.png",
+                    "name": "凯尔希",
+                    "input": {
+                        "type": "bool",
+                        "value": -50,
                         "offset": 0,
                         "default": false
                     }
@@ -144,12 +168,11 @@
             ],
             "output": {
                 "method": "sum",
-                "factor": 1,
                 "offset": 0
             }
         },
         {
-            "index": 3,
+            "index": 5,
             "title": "结算分",
             "subtitle": "这个分，是鹰角给你的",
             "items": [
@@ -164,7 +187,6 @@
             ],
             "output": {
                 "method": "sum",
-                "factor": 1,
                 "offset": 0
             }
         }
