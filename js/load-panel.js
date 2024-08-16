@@ -315,12 +315,14 @@ document.addEventListener("DOMContentLoaded", function () {
                             inputField.value = Math.max(0, parseInt(stateValue));
                             if (inputField.value != 0 && itemDiv && itemDiv.classList){
                                 itemDiv.classList.remove('collapsed');
+                                logAction(item.name,`-> ${inputField.value}`)
                             }
                         } else if (item.input.type === 'bool') {
                             const switchDiv = itemDiv.querySelector('.switch');
                             if (stateValue === '1') {
                                 switchDiv.classList.add('active');
                                 itemDiv.classList.remove('collapsed');
+                                logAction(item.name,`-> ON`)
                             } else {
                                 switchDiv.classList.remove('active');
                             }
