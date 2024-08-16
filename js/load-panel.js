@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
             container.appendChild(panelDiv);
             updateSummary(panel, panelDiv);
         });
-        loadStateFromParams();
     }
 
     function createPanel(panel) {
@@ -74,6 +73,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 inputField.value = item.input.default !== undefined ? item.input.default : -item.input.offset;
                 inputField.id = item.name;
 
+                inputField.addEventListener("keydown", function(event) {
+                    if (event.key === "Enter") {
+                        console.log("User pressed Enter:", inputField.value);
+                        updateSummary(panel,panelDiv);
+                    }
+                });
+
                 minusButton.addEventListener("click", function () {
                     if (parseInt(inputField.value) > 0) {
                         const selectBox = itemDiv.closest(".panel").querySelector(".panel-select select");
@@ -125,6 +131,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
 
                 operationDiv.appendChild(switchDiv);
+            } else if (item.input.type === "input") {
+                const inputField = document.createElement("input");
+                inputField.type = "text";
+                inputField.value = item.input.offset;
+                inputField.className = "item-value"
+                inputField.value = item.input.default !== undefined ? item.input.default : -item.input.offset;
+                inputField.id = item.name;
+
+                inputField.addEventListener("keydown", function(event) {
+                    if (event.key === "Enter") {
+                        console.log("User pressed Enter:", inputField.value);
+                        updateSummary(panel,panelDiv);
+                    }
+                });
+
+                operationDiv.appendChild(inputField);
             }
 
             itemDiv.appendChild(operationDiv);
@@ -242,7 +264,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const item = panel.items[index];
             let value = 0;
 
-            if (item.input.type === "int") {
+            if (item.input.type === "int" || item.input.type === "input") {
                 const inputField = itemDiv.querySelector("input");
                 let itemCount = parseInt(inputField.value);
                 if (item.input.offset < 0) {
@@ -250,7 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 } else {
                     itemCount = itemCount + item.input.offset;
                 }
-                value =  itemCount * parseInt(item.input.value);
+                value = itemCount * parseInt(item.input.value);
             } else if (item.input.type === "bool") {
                 const switchDiv = itemDiv.querySelector(".switch");
                 value = switchDiv.classList.contains("active") ? item.input.value : 0;
@@ -313,16 +335,16 @@ document.addEventListener("DOMContentLoaded", function () {
                         if (item.input.type === 'int') {
                             const inputField = itemDiv.querySelector('input');
                             inputField.value = Math.max(0, parseInt(stateValue));
-                            if (inputField.value != 0 && itemDiv && itemDiv.classList){
+                            if (inputField.value != 0 && itemDiv && itemDiv.classList) {
                                 itemDiv.classList.remove('collapsed');
-                                logAction(item.name,`-> ${inputField.value}`)
+                                logAction(item.name, `-> ${inputField.value}`)
                             }
                         } else if (item.input.type === 'bool') {
                             const switchDiv = itemDiv.querySelector('.switch');
                             if (stateValue === '1') {
                                 switchDiv.classList.add('active');
                                 itemDiv.classList.remove('collapsed');
-                                logAction(item.name,`-> ON`)
+                                logAction(item.name, `-> ON`)
                             } else {
                                 switchDiv.classList.remove('active');
                             }

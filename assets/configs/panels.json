@@ -177,11 +177,13 @@
             "subtitle": "这个分，是鹰角给你的",
             "items": [
                 {
-                    "pics": "assets/images/Avatars/维什戴尔.png",
+                    "pics": "assets/images/Props/封面图.png",
                     "name": "结算分",
                     "input": {
                         "type": "input",
-                        "offset": 0
+                        "value": 1,
+                        "offset": 0,
+                        "default": 0
                     }
                 }
             ],
