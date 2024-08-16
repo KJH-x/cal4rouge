@@ -67,6 +67,30 @@
     align-items: center;
 }
 
+.panel-select {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border-top: 1px solid #ccc;
+}
+
+.panel-select select {
+    flex-grow: 1;
+    margin: 0 10px;
+}
+
+.panel-select button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.panel-item.collapsed {
+    display: none;
+}
+
 .panel-item {
     display: flex;
     align-items: center;

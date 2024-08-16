@@ -61,10 +61,11 @@
     color: #ccc;
     text-align: right;
     text-decoration: none;
-    width: 40%;
+    width: 60%;
     align-self: center;
     margin-left: auto;
     margin-right: 2%;
+    font-size: 10px;
 }
 
 .container {

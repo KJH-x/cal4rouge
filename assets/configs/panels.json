@@ -4,6 +4,7 @@
             "index": 1,
             "title": "隐藏敌人",
             "subtitle": "你的财富，借用一下",
+            "fold": true,
             "items": [
                 {
                     "pics": "assets/images/Avatars/鸭爵.png",
@@ -48,6 +49,7 @@
             "index": 2,
             "title": "未招募干员",
             "subtitle": "这些我们一般说：太强不用",
+            "fold": true,
             "items": [
                 {
                     "pics": "assets/images/Avatars/维什戴尔.png",
@@ -56,7 +58,7 @@
                         "type": "bool",
                         "value": -130,
                         "offset": 0,
-                        "default": 0
+                        "default": false
                     }
                 },
                 {
@@ -66,70 +68,97 @@
                         "type": "bool",
                         "value": -70,
                         "offset": 0,
-                        "default": 0
+                        "default": false
                     }
-                },{
+                },
+                {
                     "pics": "assets/images/Avatars/逻各斯.png",
                     "name": "逻各斯",
                     "input": {
                         "type": "bool",
                         "value": -70,
                         "offset": 0,
-                        "default": 0
+                        "default": false
                     }
-                },{
+                },
+                {
                     "pics": "assets/images/Avatars/乌尔比安.png",
                     "name": "乌尔比安",
                     "input": {
                         "type": "bool",
                         "value": -40,
                         "offset": 0,
-                        "default": 0
+                        "default": false
                     }
-                },{
+                },
+                {
                     "pics": "assets/images/Avatars/妮芙.png",
                     "name": "妮芙",
                     "input": {
                         "type": "bool",
                         "value": -40,
                         "offset": 0,
-                        "default": 0
+                        "default": false
                     }
-                },{
+                },
+                {
                     "pics": "assets/images/Avatars/莱伊.png",
                     "name": "莱伊",
                     "input": {
                         "type": "bool",
                         "value": -40,
                         "offset": 0,
-                        "default": 0
+                        "default": false
                     }
-                },{
+                },
+                {
                     "pics": "assets/images/Avatars/缄默德克萨斯.png",
                     "name": "缄默德克萨斯",
                     "input": {
                         "type": "bool",
                         "value": -40,
                         "offset": 0,
-                        "default": 0
+                        "default": false
                     }
-                },{
+                },
+                {
                     "pics": "assets/images/Avatars/纯烬艾雅法拉.png",
                     "name": "纯烬艾雅法拉",
                     "input": {
                         "type": "bool",
                         "value": -40,
                         "offset": 0,
-                        "default": 0
+                        "default": false
                     }
-                },{
+                },
+                {
                     "pics": "assets/images/Avatars/阿斯卡纶.png",
                     "name": "阿斯卡纶",
                     "input": {
                         "type": "bool",
                         "value": -40,
                         "offset": 0,
-                        "default": 0
+                        "default": false
+                    }
+                }
+            ],
+            "output": {
+                "method": "sum",
+                "factor": 1,
+                "offset": 0
+            }
+        },
+        {
+            "index": 3,
+            "title": "结算分",
+            "subtitle": "这个分，是鹰角给你的",
+            "items": [
+                {
+                    "pics": "assets/images/Avatars/维什戴尔.png",
+                    "name": "结算分",
+                    "input": {
+                        "type": "input",
+                        "offset": 0
                     }
                 }
             ],

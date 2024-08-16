@@ -21,11 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         loadStateFromParams();
     }
+
     function createPanel(panel) {
         const panelDiv = document.createElement("div");
         panelDiv.className = "panel";
 
-        // Title Box
         const titleBox = document.createElement("div");
         titleBox.className = "panel-title-box";
         const title = document.createElement("span");
@@ -38,10 +38,17 @@ document.addEventListener("DOMContentLoaded", function () {
         titleBox.appendChild(subtitle);
         panelDiv.appendChild(titleBox);
 
-        // Items
-        panel.items.forEach(item => {
+        const foldedItems = [];
+        const isFolded = panel.fold == true;
+
+        panel.items.forEach((item, index) => {
             const itemDiv = document.createElement("div");
             itemDiv.className = "panel-item";
+
+            if (isFolded) {
+                itemDiv.classList.add("collapsed");
+                foldedItems.push({ item, index });
+            }
 
             const img = document.createElement("img");
             img.src = item.pics;
@@ -68,10 +75,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 minusButton.addEventListener("click", function () {
                     if (parseInt(inputField.value) > 0) {
+                        const selectBox = itemDiv.closest(".panel").querySelector(".panel-select select");
                         inputField.value = parseInt(inputField.value) - 1;
-                        updateSummary(panel, panelDiv);
+                        if (parseInt(inputField.value) === 0) {
+                            itemDiv.classList.add("collapsed");
+                            const option = document.createElement("option");
+                            option.value = index;
+                            option.textContent = item.name;
+                            selectBox.appendChild(option);
+                        }
                         logAction(item.name, '-1');
                     }
+                    updateSummary(panel, panelDiv);
                 });
 
                 plusButton.addEventListener("click", function () {
@@ -96,6 +111,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 switchDiv.addEventListener("click", function () {
                     switchDiv.classList.toggle("active");
+                    const selectBox = itemDiv.closest(".panel").querySelector(".panel-select select");
+                    if (!switchDiv.classList.contains("active")) {
+                        itemDiv.classList.add("collapsed");
+                        const option = document.createElement("option");
+                        option.value = index;
+                        option.textContent = item.name;
+                        selectBox.appendChild(option);
+                    }
                     updateSummary(panel, panelDiv);
                     logAction(item.name, switchDiv.classList.contains("active") ? 'ON' : 'OFF');
                 });
@@ -107,8 +130,55 @@ document.addEventListener("DOMContentLoaded", function () {
             panelDiv.appendChild(itemDiv);
         });
 
-        // Summary Box
-        // Summary Box with two equal divs for label and value
+        if (foldedItems.length > 0) {
+            const panelSelectDiv = document.createElement("div");
+            panelSelectDiv.className = "panel-select";
+
+            const addLabel = document.createElement("div");
+            addLabel.textContent = "增加";
+
+            const selectBox = document.createElement("select");
+            foldedItems.forEach(({ item, index }) => {
+                const option = document.createElement("option");
+                option.value = index;
+                option.textContent = item.name;
+                selectBox.appendChild(option);
+            });
+
+            const addButton = document.createElement("button");
+            addButton.innerHTML = '<svg width="24" height="24"><use xlink:href="#icon-add-item"></use></svg>';
+
+            addButton.addEventListener("click", () => {
+                const selectedIndex = selectBox.value;
+                if (selectedIndex !== "") {
+                    const selectedItem = panel.items[selectedIndex];
+                    const selectedItemDiv = panelDiv.querySelectorAll(".panel-item")[selectedIndex];
+                    if (selectedItemDiv) {
+                        selectedItemDiv.classList.remove("collapsed");
+                        if (selectedItem.input.type === "bool") {
+                            const switchDiv = selectedItemDiv.querySelector(".switch");
+                            if (switchDiv) {
+                                switchDiv.classList.add("active");
+                            }
+                        } else if (selectedItem.input.type === "int") {
+                            const inputField = selectedItemDiv.querySelector("input");
+                            if (inputField) {
+                                inputField.value = 1;
+                            }
+                        }
+                        selectBox.remove(selectBox.selectedIndex);
+                        updateSummary(panel, panelDiv);
+                        logAction(selectedItem.name, '+1');
+                    }
+                }
+            });
+
+            panelSelectDiv.appendChild(addLabel);
+            panelSelectDiv.appendChild(selectBox);
+            panelSelectDiv.appendChild(addButton);
+            panelDiv.appendChild(panelSelectDiv);
+        }
+
         const summaryBox = document.createElement("div");
         summaryBox.className = "panel-summary-box";
 
@@ -198,6 +268,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (versionString !== currentVersion) {
                 console.log('Version mismatch. State not updated.');
+                window.history.replaceState({}, "", window.location.origin)
                 return;
             }
             console.log(versionString, states, stateArray, stateArray.length)
