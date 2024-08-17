@@ -306,8 +306,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function logAction(itemName, action) {
-        const timestamp = new Date().toLocaleTimeString();
-        const logEntry = `[${timestamp}] ${itemName} ${action}`;
+        // const timestamp = new Date().toLocaleTimeString();
+        const logEntry = `${itemName} ${action}`;
         const logElement = document.createElement("div");
         logElement.textContent = logEntry;
         logArea.appendChild(logElement);
