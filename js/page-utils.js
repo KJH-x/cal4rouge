@@ -48,3 +48,30 @@ function resetState() {
         window.location.href = `${window.location.origin}${window.location.pathname}`
     }
 }
+
+function adjustLeftContent() {
+    const rightContent = document.querySelector('.right-content');
+    const leftContent = document.querySelector('.left-content');
+
+    if (window.innerWidth <= 480) {
+        const rightContentHeight = rightContent.offsetHeight;
+        leftContent.style.paddingTop = `${rightContentHeight + 20}px`; // +40 to account for .right-content's top offset
+    } else {
+        leftContent.style.paddingTop = ''; // Clear the padding in case of a larger screen
+    }
+}
+
+// Adjust on page load
+document.addEventListener('DOMContentLoaded', adjustLeftContent);
+
+// Adjust on window resize
+window.addEventListener('resize', adjustLeftContent);
+
+// Create a ResizeObserver to monitor .right-content
+const rightContent = document.querySelector('.right-content');
+const resizeObserver = new ResizeObserver(() => {
+    adjustLeftContent();
+});
+
+// Start observing .right-content for size changes
+resizeObserver.observe(rightContent);

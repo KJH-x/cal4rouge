@@ -84,7 +84,6 @@
 }
 
 .log-area {
-    /* flex: 1; */
     overflow-y: auto;
     background-color: #f0f0f0;
     padding: 10px;
@@ -133,12 +132,12 @@
         position: fixed;
         left: 0;
         top: 40px;
-        max-height: min(240px, 50vh);
+        max-height: min(240px, 30vh);
     }
 
     .right-content .log-area {
         border-radius: 10px 10px 0 0;
-        max-height: min(240px, 45vh);
+        max-height: min(240px, 25vh);
         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
     }
 
@@ -182,6 +181,7 @@
 
 @media (max-width: 480px) {
     .left-content {
+        margin-top: ;
         padding-left: calc(max((100% - 250px) / 2, 0px));
     }
 }
