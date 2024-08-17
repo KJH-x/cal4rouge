@@ -43,7 +43,8 @@ function copyState() {
 }
 
 function resetState() {
-    alert("是否确定要清空本地数据")
-    localStorage.clear()
-    window.location.href = `${window.location.origin}${window.location.pathname}`
+    if (confirm("是否确定要清空本地数据")) {
+        localStorage.clear()
+        window.location.href = `${window.location.origin}${window.location.pathname}`
+    }
 }
