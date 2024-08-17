@@ -181,7 +181,7 @@
 
 @media (max-width: 480px) {
     .left-content {
-        margin-top: ;
+        /* margin-top: ; */
         padding-left: calc(max((100% - 250px) / 2, 0px));
     }
 }
