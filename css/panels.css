@@ -7,7 +7,7 @@
     border-radius: 13px 13px;
     border-color: rgb(98, 140, 224);
     border-width: 2px;
-    box-shadow:  3px 3px 10px #0c0f24;
+    box-shadow: 3px 3px 10px #0c0f24;
 }
 
 .panel-title-box {
@@ -20,16 +20,7 @@
     text-align: center;
     border-radius: 10px 10px 0 0;
 }
-.panel-summary-box {
-    background-color: black;
-    color: white;
-    height: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    border-radius:  0 0 10px 10px;
-}
+
 .panel-title {
     font-size: 15px;
     margin-top: 5px;
@@ -42,26 +33,33 @@
 }
 
 .panel-summary-box {
+    background-color: black;
+    color: white;
+    height: 30px;
+    justify-content: center;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
     display: flex;
     padding: 0 10px;
 }
 
 .panel-summary-box .summary-container {
-    flex: 1; /* Make both containers take up equal space */
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
-.panel-summary-box .summary-container:first-child {
-    justify-content: flex-start; /* Left-align the first container */
+/* .panel-summary-box .summary-container:first-child {
+    justify-content: flex-start;
 }
 
 .panel-summary-box .summary-container:last-child {
-    justify-content: flex-end; /* Right-align the second container */
-}
+    justify-content: flex-end;
+} */
 
-.panel-summary-box .summary-label, 
+.panel-summary-box .summary-label,
 .panel-summary-box .summary-value {
     font-size: 15px;
     align-items: center;
@@ -76,9 +74,14 @@
     border-top: 1px solid #ccc;
 }
 
-.panel-select select {
+.panel-select .item-select {
     flex-grow: 1;
     margin: 0 10px;
+    border: none;
+    border: none;
+    border-bottom: 2px solid gray; 
+    background-color: transparent; 
+    outline: none; 
 }
 
 .panel-select button {
@@ -129,12 +132,30 @@
 .panel-item .operation .item-count {
     width: 20px;
     text-align: center;
+    border: none;
+    border-bottom: 2px solid gray; 
+    background-color: transparent; 
+    outline: none; 
+    transition: border-color 0.3s ease; 
+}
+
+.panel-item .operation .item-count:focus {
+    border-color: blue;
 }
 
 .panel-item .operation .item-value {
     width: 60px;
     text-align: center;
     margin-right: 10px;
+    border: none;
+    border-bottom: 2px solid gray; 
+    background-color: transparent; 
+    outline: none; 
+    transition: border-color 0.3s ease; 
+}
+
+.panel-item .operation .item-value:focus {
+    border-color: blue;
 }
 
 .switch {
@@ -171,7 +192,7 @@
     background-color: #f0f0f0;
     padding: 10px;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
-    max-height: calc(100vh - 100px); /* Prevent the log area from growing too large */
+    max-height: calc(100vh - 100px);
 }
 
 .total-score {

@@ -1,4 +1,4 @@
-function getStateString() {
+function recordState() {
     let stateString = '';
     const versionString = document.getElementById('versionInfo').textContent;
     stateString += versionString + ':';
@@ -20,12 +20,13 @@ function getStateString() {
     stateString = stateString.slice(0, -1);
 
     const encodedState = btoa(stateString)
-    document.getElementById('currentStatus').textContent = encodedState
+    // document.getElementById('currentStatus').textContent = encodedState
+    localStorage.setItem("state", encodedState)
     return encodedState;
 }
 
 function copyState() {
-    const encodedState = getStateString();
+    const encodedState = recordState();
     const currentUrl = new URL(window.location.href);
     const params = currentUrl.searchParams;
 
@@ -33,10 +34,16 @@ function copyState() {
     params.set('s', encodedState);
     NewUrl = `${window.location.origin}${currentUrl.pathname}?${params.toString()}`;
 
-    document.getElementById('currentStatus').textContent = encodedState;
+    // document.getElementById('currentStatus').textContent = encodedState;
     navigator.clipboard.writeText(NewUrl).then(function () {
-        alert('State copied to clipboard!');
+        alert('分享链接已经复制到剪贴板!');
     }).catch(function (err) {
         alert('Failed to copy state: ' + err);
     });
+}
+
+function resetState() {
+    alert("是否确定要清空本地数据")
+    localStorage.clear()
+    window.location.href = `${window.location.origin}${window.location.pathname}`
 }

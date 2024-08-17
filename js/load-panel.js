@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             generatePanels(data);
-            loadStateFromParams();
+            loadState();
         });
 
     function generatePanels(data) {
@@ -63,9 +63,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (item.input.type === "int") {
                 const minusButton = document.createElement("button");
-                minusButton.innerHTML = '<svg width="20px" height="20px"><use xlink:href="#icon-minus"></use></svg>';
+                minusButton.innerHTML = '<svg width="20px" height="20px"><use href="#icon-minus"></use></svg>';
                 const plusButton = document.createElement("button");
-                plusButton.innerHTML = '<svg width="20px" height="20px"><use xlink:href="#icon-plus"></use></svg>';
+                plusButton.innerHTML = '<svg width="20px" height="20px"><use href="#icon-plus"></use></svg>';
                 const inputField = document.createElement("input");
                 inputField.type = "text";
                 inputField.value = item.input.offset;
@@ -73,12 +73,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 inputField.value = item.input.default !== undefined ? item.input.default : -item.input.offset;
                 inputField.id = item.name;
 
-                inputField.addEventListener("keydown", function(event) {
-                    if (event.key === "Enter") {
-                        console.log("User pressed Enter:", inputField.value);
-                        updateSummary(panel,panelDiv);
-                    }
+                inputField.addEventListener("keydown", function () {
+                    updateSummary(panel, panelDiv);
+                    recordState();
                 });
+                inputField.addEventListener("blur", function () {
+                    updateSummary(panel, panelDiv)
+                    recordState();
+                })
 
                 minusButton.addEventListener("click", function () {
                     if (parseInt(inputField.value) > 0) {
@@ -94,11 +96,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         logAction(item.name, '-1');
                     }
                     updateSummary(panel, panelDiv);
+                    recordState();
                 });
 
                 plusButton.addEventListener("click", function () {
                     inputField.value = parseInt(inputField.value) + 1;
                     updateSummary(panel, panelDiv);
+                    recordState();
                     logAction(item.name, '+1');
                 });
 
@@ -139,12 +143,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 inputField.value = item.input.default !== undefined ? item.input.default : -item.input.offset;
                 inputField.id = item.name;
 
-                inputField.addEventListener("keydown", function(event) {
-                    if (event.key === "Enter") {
-                        console.log("User pressed Enter:", inputField.value);
-                        updateSummary(panel,panelDiv);
-                    }
+                inputField.addEventListener("keydown", function () {
+                    updateSummary(panel, panelDiv);
                 });
+                inputField.addEventListener("blur", function () {
+                    updateSummary(panel, panelDiv)
+                })
 
                 operationDiv.appendChild(inputField);
             }
@@ -168,6 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 selectBox.appendChild(option);
             });
             selectBox.id = panel.title;
+            selectBox.classList.add("item-select")
 
             selectBox.addEventListener("change", function () {
                 const selectedIndex = selectBox.value;
@@ -196,7 +201,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
             const addButton = document.createElement("button");
-            addButton.innerHTML = '<svg width="24" height="24"><use xlink:href="#icon-add-item"></use></svg>';
+            addButton.innerHTML = '<svg width="24" height="24"><use href="#icon-add-item"></use></svg>';
 
             addButton.addEventListener("click", () => {
                 const selectedIndex = selectBox.value;
@@ -239,7 +244,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const label = document.createElement("span");
         label.className = "summary-label";
-        label.textContent = "本项总分";
+        label.textContent = "小计";
         labelContainer.appendChild(label);
 
         const value = document.createElement("span");
@@ -255,7 +260,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function updateSummary(panel, panelDiv) {
-        getStateString()
         let sum = 0;
 
         const items = panelDiv.querySelectorAll(".panel-item");
@@ -267,6 +271,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (item.input.type === "int" || item.input.type === "input") {
                 const inputField = itemDiv.querySelector("input");
                 let itemCount = parseInt(inputField.value);
+                inputField.value = itemCount;
                 if (item.input.offset < 0) {
                     itemCount = Math.max(0, itemCount + item.input.offset);
                 } else {
@@ -281,7 +286,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (isNaN(value)) {
                 value = 0;
             }
-
             sum += value
         });
 
@@ -361,11 +365,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    function loadStateFromParams() {
+    function loadState() {
         const params = new URLSearchParams(window.location.search);
-        const encodedState = params.get('s');
-        if (encodedState) {
-            updateState(encodedState);
+        const encodedStateFromParams = params.get('s');
+        const encodedStateFromLocalS = localStorage.getItem("state")
+        if (encodedStateFromParams && confirm("读取到分享参数，是否覆盖本地参数？")) {
+            // updateState(encodedStateFromParams);
+            localStorage.setItem("state", encodedStateFromParams)
+            window.location.href = `${window.location.origin}${window.location.pathname}`
+        } else if (encodedStateFromLocalS) {
+            updateState(encodedStateFromLocalS);
         }
     }
 });
