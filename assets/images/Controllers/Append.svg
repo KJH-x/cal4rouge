@@ -10,7 +10,7 @@
         fill: url(#_未命名的渐变_2);
       }
     </style>
-    <linearGradient id="_未命名的渐变_2" data-name="未命名的渐变 2" x1="44.67" y1="135.33" x2="135.33" y2="44.67" gradientUnits="userSpaceOnUse">
+    <linearGradient id="_未命名的渐变_2" data-name="未命名的渐变 2" x1="44.67" y1="890.67" x2="135.33" y2="981.33" gradientTransform="translate(0 1026) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#000"/>
       <stop offset=".16" stop-color="#000003"/>
       <stop offset=".29" stop-color="#01030d"/>
@@ -23,8 +23,8 @@
       <stop offset="1" stop-color="#234cff"/>
     </linearGradient>
   </defs>
-  <g id="_" data-name="+">
-    <path class="cls-1" d="M170,100.67h-69.33v69.33h-21.33v-69.33H10v-21.33h69.33V10h21.33v69.33h69.33v21.33Z"/>
-    <path class="cls-2" d="M170,100.67h-69.33v69.33h-21.33v-69.33H10v-21.33h69.33V10h21.33v69.33h69.33v21.33Z"/>
+  <g id="_" data-name=" ">
+    <path class="cls-1" d="M170,100.67h-69.33v69.33h-21.33v-69.33H10v-21.33h69.33V10h21.33v69.33h69.33v21.33h0Z"/>
+    <path class="cls-2" d="M170,100.67h-69.33v69.33h-21.33v-69.33H10v-21.33h69.33V10h21.33v69.33h69.33v21.33h0Z"/>
   </g>
 </svg>
