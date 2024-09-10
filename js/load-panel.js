@@ -201,6 +201,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
             const addButton = document.createElement("button");
+            addButton.className = 'append-button';
             addButton.innerHTML = '<svg width="24" height="24"><use href="#icon-add-item"></use></svg>';
 
             addButton.addEventListener("click", () => {

@@ -1,0 +1,52 @@
+.panel-new-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border-top: 1px solid #ccc;
+}
+
+/* .complex-select {
+    flex-grow: 1;
+    margin: 0 10px;
+    border: none;
+    border: none;
+    border-bottom: 2px solid gray;
+    background-color: transparent;
+    outline: none;
+} */
+
+.item-expand,
+.item-change,
+.item-sum,
+.item-delete,
+.item-duplicate {
+    cursor: pointer;
+    margin: 0 5px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.item-expand svg,
+.item-delete svg,
+.item-duplicate svg {
+    width: 15px;
+    height: 15px;
+}
+
+.sub-item {
+    display: none;
+    margin-left: 20px;
+    padding: 5px 0;
+}
+
+.sub-item.active {
+    display: block;
+}
+
+.sub-item img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}

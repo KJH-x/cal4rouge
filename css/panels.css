@@ -1,3 +1,4 @@
+.complex-panel-outer,
 .panel {
     width: 250px;
     margin-bottom: 20px;
@@ -65,6 +66,7 @@
     align-items: center;
 }
 
+.complex-select-box,
 .panel-select {
     display: flex;
     justify-content: space-between;
@@ -74,17 +76,17 @@
     border-top: 1px solid #ccc;
 }
 
+.complex-select-box .item-select,
 .panel-select .item-select {
     flex-grow: 1;
     margin: 0 10px;
     border: none;
-    border: none;
-    border-bottom: 2px solid gray; 
-    background-color: transparent; 
-    outline: none; 
+    border-bottom: 2px solid gray;
+    background-color: transparent;
+    outline: none;
 }
 
-.panel-select button {
+.append-button {
     background: none;
     border: none;
     cursor: pointer;
@@ -133,10 +135,10 @@
     width: 20px;
     text-align: center;
     border: none;
-    border-bottom: 2px solid gray; 
-    background-color: transparent; 
-    outline: none; 
-    transition: border-color 0.3s ease; 
+    border-bottom: 2px solid gray;
+    background-color: transparent;
+    outline: none;
+    transition: border-color 0.3s ease;
 }
 
 .panel-item .operation .item-count:focus {
@@ -148,10 +150,10 @@
     text-align: center;
     margin-right: 10px;
     border: none;
-    border-bottom: 2px solid gray; 
-    background-color: transparent; 
-    outline: none; 
-    transition: border-color 0.3s ease; 
+    border-bottom: 2px solid gray;
+    background-color: transparent;
+    outline: none;
+    transition: border-color 0.3s ease;
 }
 
 .panel-item .operation .item-value:focus {

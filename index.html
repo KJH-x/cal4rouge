@@ -7,6 +7,8 @@
     <title>RglkCal</title>
     <link rel="stylesheet" href="css/pageStructure.css">
     <link rel="stylesheet" href="css/panels.css">
+    <link rel="stylesheet" href="css/complexpanel.css">
+    <link rel="stylesheet" href="css/complexpanel.css">
 
     <link rel="alternate icon" class="favicon" type="image/png" href="assets/images/Controllers/Title.svg">
 </head>
@@ -21,7 +23,7 @@
         <div id="mainTitle" class="statusElement">
             <a id="statusTitle" href="https://github.com/KJH-x/cal4rouge" target="_blank" title="去仓库看看">萨卡兹肉鸽计分</a>
         </div>
-        <a id="versionInfo" class="statusElement" title="芝士版本号，只有同一版本的才能分享参数">Dev 0817D</a>
+        <a id="versionInfo" class="statusElement" title="芝士版本号，只有同一版本的才能分享参数">Dev 0825A</a>
         <img alt="Refresh" id="refreshIcon" class="statusElement" onclick="resetState()"
             src="assets/images/Controllers/Refresh.svg" title="重置数据">
         <img alt="Share" id="shareIcon" class="statusElement" onclick="copyState()"
@@ -31,6 +33,9 @@
 
     <div class="container">
         <div class="left-content" id="leftContent">
+            <div id="complex-panel" class="complex-panel-outer">
+                <!-- 动态生成的面板将插入到这里 -->
+            </div>
             <!-- 动态生成的面板将插入到这里 -->
         </div>
         <div class="right-content">
@@ -54,12 +59,22 @@
         <symbol id="icon-add-item" viewBox="0 0 24 24">
             <image href="assets/images/Controllers/Append.svg" width="24" height="24"></image>
         </symbol>
+        <symbol id="icon-duplicate" viewBox="0 0 24 24">
+            <image href="assets/images/Controllers/Duplicate.svg" width="24" height="24"></image>
+        </symbol>
+        <symbol id="icon-delete" viewBox="0 0 24 24">
+            <image href="assets/images/Controllers/Delete.svg" width="24" height="24"></image>
+        </symbol>
+        <symbol id="icon-expand" viewBox="0 0 24 24">
+            <image href="assets/images/Controllers/Expand.svg" width="24" height="24"></image>
+        </symbol>
     </svg>
 
     <!-- <script src="js/scripts.js"></script> -->
     <script src="js/main-functions.js"></script>
     <script src="js/page-utils.js"></script>
     <script src="js/load-panel.js"></script>
+    <script src="js/load-complex-panel-v2.js"></script>
     <!-- <script src="js/debug.js"></script> -->
 </body>
 

@@ -1,0 +1,133 @@
+{
+    "title": "紧急作战",
+    "subtitle": "很急",
+    "items": [
+        {
+            "name": "排风口",
+            "baseValue": 15
+        },
+        {
+            "name": "有序清场",
+            "baseValue": 15
+        },
+        {
+            "name": "大棋一盘",
+            "baseValue": 30
+        },
+        {
+            "name": "溃乱魔典",
+            "baseValue": 30
+        },
+        {
+            "name": "假想对冲",
+            "baseValue": 50
+        },
+        {
+            "name": "猩红甬道",
+            "baseValue": 60
+        },
+        {
+            "name": "朽败考察",
+            "baseValue": 50
+        },
+        {
+            "name": "年代断层",
+            "baseValue": 50
+        },
+        {
+            "name": "寄人城池下",
+            "baseValue": 80
+        },
+        {
+            "name": "计划耕种",
+            "baseValue": 80
+        },
+        {
+            "name": "通道封锁",
+            "baseValue": 60
+        },
+        {
+            "name": "神圣的渴求",
+            "baseValue": 100
+        },
+        {
+            "name": "谋求共识",
+            "baseValue": 100
+        }
+    ],
+    "options": [
+        {
+            "type": "single-select",
+            "list": [
+                {
+                    "pic": "None",
+                    "name": "(空)",
+                    "amp": "0"
+                },
+                {
+                    "pic": "assets/images/Ages/金融年代.png",
+                    "name": "金融年代",
+                    "amp": "15"
+                },
+                {
+                    "pic": "assets/images/Ages/苦难年代.png",
+                    "name": "苦难年代",
+                    "amp": "15"
+                },
+                {
+                    "pic": "assets/images/Ages/魔王年代.png",
+                    "name": "魔王年代",
+                    "amp": "10"
+                },
+                {
+                    "pic": "assets/images/Ages/奇观年代.png",
+                    "name": "奇观年代",
+                    "amp": "20"
+                },
+                {
+                    "pic": "assets/images/Ages/天灾年代.png",
+                    "name": "天灾年代",
+                    "amp": "15"
+                },
+                {
+                    "pic": "assets/images/Ages/拥挤年代.png",
+                    "name": "拥挤年代",
+                    "amp": "20"
+                }
+            ]
+        },
+        {
+            "type": "multi-select",
+            "pic": "...",
+            "list": [
+                {
+                    "pic": "...",
+                    "name": "…",
+                    "offset": "…"
+                },
+                {
+                    "pic": "...",
+                    "name": "…",
+                    "offset": "…"
+                },
+                {
+                    "pic": "...",
+                    "name": "…",
+                    "offset": "…"
+                }
+            ]
+        },
+        {
+            "type": "check-offset",
+            "pic": "...",
+            "name": "…",
+            "offset": "…"
+        },
+        {
+            "type": "check-amp",
+            "pic": "...",
+            "name": "…",
+            "offset": "…"
+        }
+    ]
+}
