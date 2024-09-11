@@ -62,72 +62,88 @@
                 {
                     "pic": "None",
                     "name": "(空)",
-                    "amp": "0"
+                    "amp": 0
                 },
                 {
                     "pic": "assets/images/Ages/金融年代.png",
                     "name": "金融年代",
-                    "amp": "15"
+                    "amp": 15
                 },
                 {
                     "pic": "assets/images/Ages/苦难年代.png",
                     "name": "苦难年代",
-                    "amp": "15"
+                    "amp": 15
                 },
                 {
                     "pic": "assets/images/Ages/魔王年代.png",
                     "name": "魔王年代",
-                    "amp": "10"
+                    "amp": 10
                 },
                 {
                     "pic": "assets/images/Ages/奇观年代.png",
                     "name": "奇观年代",
-                    "amp": "20"
+                    "amp": 20
                 },
                 {
                     "pic": "assets/images/Ages/天灾年代.png",
                     "name": "天灾年代",
-                    "amp": "15"
+                    "amp": 15
                 },
                 {
                     "pic": "assets/images/Ages/拥挤年代.png",
                     "name": "拥挤年代",
-                    "amp": "20"
+                    "amp": 20
                 }
             ]
         },
         {
             "type": "multi-select",
-            "pic": "...",
+            "pic": "assets/images/Challenges/多选藏品.png",
             "list": [
                 {
-                    "pic": "...",
-                    "name": "…",
-                    "offset": "…"
+                    "pic": "assets/images/Challenges/烙印之谜.png",
+                    "name": "烙印之谜",
+                    "offset": 10
                 },
                 {
-                    "pic": "...",
-                    "name": "…",
-                    "offset": "…"
+                    "pic": "assets/images/Challenges/预示之谜.png",
+                    "name": "预示之谜",
+                    "offset": 5
                 },
                 {
-                    "pic": "...",
-                    "name": "…",
-                    "offset": "…"
+                    "pic": "assets/images/Challenges/惧傲之谜.png",
+                    "name": "惧傲之谜",
+                    "offset": 5
+                },
+                {
+                    "pic": "assets/images/Challenges/结晶之谜.png",
+                    "name": "结晶之谜",
+                    "offset": 5
+                },
+                {
+                    "pic": "assets/images/Challenges/宁静之谜.png",
+                    "name": "宁静之谜",
+                    "offset": 5
                 }
             ]
         },
         {
             "type": "check-offset",
-            "pic": "...",
-            "name": "…",
-            "offset": "…"
+            "pic": "assets/images/Challenges/最后防线(五六层).png",
+            "name": "V/VI Flawless",
+            "offset": 10
         },
         {
             "type": "check-amp",
-            "pic": "...",
-            "name": "…",
-            "offset": "…"
+            "pic": "assets/images/Challenges/誓言x混乱(五六层).png",
+            "name": "誓言x混乱(五六层)",
+            "amp": 15
+        },
+        {
+            "type": "check-amp",
+            "pic": "assets/images/Challenges/死仇时代的恨意.png",
+            "name": "死仇时代的恨意",
+            "amp": 50
         }
     ]
 }
