@@ -53,6 +53,54 @@
         {
             "name": "谋求共识",
             "baseValue": 100
+        },
+        {
+            "name": "或然面纱",
+            "baseValue": 30
+        },
+        {
+            "name": "奉献",
+            "baseValue": 30
+        },
+        {
+            "name": "斩首",
+            "baseValue": 30
+        },
+        {
+            "name": "王冠之下",
+            "baseValue": 60
+        },
+        {
+            "name": "离歌的庭院",
+            "baseValue": 60
+        },
+        {
+            "name": "赴敌者",
+            "baseValue": 60
+        },
+        {
+            "name": "紧急授课",
+            "baseValue": 40
+        },
+        {
+            "name": "朝谒",
+            "baseValue": 200
+        },
+        {
+            "name": "圣城",
+            "baseValue": 250
+        },
+        {
+            "name": "混乱的紧急授课",
+            "baseValue": 70
+        },
+        {
+            "name": "混乱的朝谒",
+            "baseValue": 260
+        },
+        {
+            "name": "混乱的圣城",
+            "baseValue": 300
         }
     ],
     "options": [
