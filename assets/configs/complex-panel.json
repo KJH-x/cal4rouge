@@ -55,6 +55,50 @@
             "baseValue": 100
         },
         {
+            "name": "失败的试胆",
+            "baseValue": 20
+        },
+        {
+            "name": "劫虚济实",
+            "baseValue": 30
+        },
+        {
+            "name": "紧急劫虚济实",
+            "baseValue": 60
+        },
+        {
+            "name": "信号灯",
+            "baseValue": 30
+        },
+        {
+            "name": "紧急信号灯",
+            "baseValue": 60
+        },
+        {
+            "name": "继承",
+            "baseValue": 20
+        },
+        {
+            "name": "紧急继承",
+            "baseValue": 40
+        },
+        {
+            "name": "战场侧面",
+            "baseValue": 20
+        },
+        {
+            "name": "紧急战场侧面",
+            "baseValue": 50
+        },
+        {
+            "name": "鸭速公路",
+            "baseValue": 60
+        },
+        {
+            "name": "紧急鸭速公路",
+            "baseValue": 100
+        },
+        {
             "name": "或然面纱",
             "baseValue": 30
         },
