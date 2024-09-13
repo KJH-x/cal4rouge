@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function confirmDeleteItem(event) {
-        if (confirm('Are you sure you want to delete this item?')) {
+        if (confirm('确定删除？')) {
             const compelxPanel = event.target.closest('#complex-panel');
             const item = event.target.closest('.compelx-item-wrap');
             item.remove();

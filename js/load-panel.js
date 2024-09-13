@@ -91,7 +91,9 @@ document.addEventListener("DOMContentLoaded", function () {
                             const option = document.createElement("option");
                             option.value = index;
                             option.textContent = item.name;
-                            selectBox.appendChild(option);
+                            try {
+                                selectBox.appendChild(option);
+                            } catch (TypeError) { ; }
                         }
                         logAction(item.name, '-1');
                     }
@@ -378,4 +380,7 @@ document.addEventListener("DOMContentLoaded", function () {
             updateState(encodedStateFromLocalS);
         }
     }
+    const ttc=document.getElementById("totalScore").addEventListener("click", function () {
+        updateGrandTotal()
+    })
 });
